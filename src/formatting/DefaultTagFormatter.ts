@@ -28,10 +28,10 @@ export class DefaultTagFormatter implements TagFormatter {
   public GetPattern(): string {
 
     if (!!this.namespace) {
-      return `${this.tagPrefix}*[0-9].*[0-9].*[0-9]${this.namespaceSeperator}${this.namespace}`;
+      return `${this.tagPrefix}*[0-9]*\.[0-9]*\.[0-9]*${this.namespaceSeperator}${this.namespace}`;
     }
 
-    return `${this.tagPrefix}*[0-9].*[0-9].*[0-9]`;
+    return `${this.tagPrefix}*[0-9]*\.[0-9]*\.[0-9]*`;
   }
 
   public Parse(tag: string): [major: number, minor: number, patch: number] {
