@@ -22,10 +22,16 @@ export class DefaultLastReleaseResolver implements LastReleaseResolver {
             `git tag --points-at ${current} ${releasePattern}`
         )).trim();
 
+core.info(`Current tag: ${currentTag}`);
+
         currentTag = tagFormatter.IsValid(currentTag) ? currentTag : '';
         const isTagged = currentTag !== '';
 
+core.info(`Is Tagged: ${isTagged}`);
+
         const [currentMajor, currentMinor, currentPatch] = !!currentTag ? tagFormatter.Parse(currentTag) : [null, null, null];
+
+core.info(`Current version: ${currentMajor}.${currentMinor}.${currentPatch}`);
 
         let tagsCount = 0;
 
@@ -41,17 +47,22 @@ export class DefaultLastReleaseResolver implements LastReleaseResolver {
                 tag = tags
                     .find(t => tagFormatter.IsValid(t) && t !== currentTag) || '';
 
+core.info(`Find in HERE: ${tag}`);
+
             } else {
                 const command = `git for-each-ref --sort=-v:*refname --format=%(refname:short) --merged=${current} ${refPrefixPattern}${releasePattern}`;
                 const tags = (await cmd(command)).split('\n')
                 tagsCount = tags.length;
                 tag = tags
                     .find(t => tagFormatter.IsValid(t)) || '';
+
+core.info(`Find in THERE: ${tag}`);
             }
 
             tag = tag.trim();
         }
         catch (err) {
+core.info(`ERR: ${err}`);
             tag = '';
         }
 
