@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/paulhatch/semantic-version.git"
+    "url": "git+https://github.com/fatdes/semantic-version.git"
   },
   "keywords": [
     "GitHub",
@@ -24,9 +24,9 @@
   "author": "Paul Hatcherian",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/paulhatch/semantic-version/issues"
+    "url": "https://github.com/fatdes/semantic-version/issues"
   },
-  "homepage": "https://github.com/paulhatch/semantic-version#readme",
+  "homepage": "https://github.com/fatdes/semantic-version#readme",
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/exec": "^1.1.1"
@@ -43,5 +43,6 @@
     "prettier": "^3.2.4",
     "ts-jest": "^29.1.2",
     "typescript": "^5.3.3"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
